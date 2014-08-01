@@ -1,0 +1,10 @@
+target 'CKCountdownButton', :exclusive => true do
+  pod "CKCountdownButton", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "CKCountdownButton", :path => "../"
+
+  pod 'Specta', '~> 0.2.1'
+  pod 'Expecta'
+end
