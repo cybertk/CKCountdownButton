@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CKCountdownButton: 30b58d4a72108023d23b450f784e3ff91a57185b
+  CKCountdownButton: 4405ea35eebd53bff21981514516b95e09dc7055
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
 

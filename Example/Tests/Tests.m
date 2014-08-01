@@ -6,20 +6,34 @@
 //  Copyright (c) 2014 Quanlong He. All rights reserved.
 //
 
+
 SpecBegin(InitialSpecs)
 
-describe(@"these will fail", ^{
+describe(@"Create a new CKCountdownButton", ^{
 
-    it(@"can do maths", ^{
-        expect(1).to.equal(2);
+    it(@"should in 'normal' state", ^{
+
+        CKCountdownButton *button = [[CKCountdownButton alloc] init];
+        expect(button.state).equal(UIControlStateNormal);
+    });
+});
+
+describe(@"Set 'count' to a CKCountdownButton", ^{
+
+    it(@"should have 'count' set", ^{
+
+        CKCountdownButton *button = [[CKCountdownButton alloc] init];
+        button.count = 10;
+
+        expect(button.count).equal(10);
     });
 
-    it(@"can read", ^{
-        expect(@"number").to.equal(@"string");
-    });
-    
-    it(@"will wait and fail", ^AsyncBlock {
-        
+    it(@"should in 'disabled' state", ^{
+
+        CKCountdownButton *button = [[CKCountdownButton alloc] init];
+        button.count = 10;
+
+        expect(button.state).equal(UIControlStateDisabled);
     });
 });
 
