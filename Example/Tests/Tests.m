@@ -20,20 +20,37 @@ describe(@"Create a new CKCountdownButton", ^{
 
 describe(@"Set 'count' to a CKCountdownButton", ^{
 
-    it(@"should have 'count' set", ^{
+    describe(@"and does not set 'Title'", ^{
+        it(@"should have 'count' set", ^{
 
-        CKCountdownButton *button = [[CKCountdownButton alloc] init];
-        button.count = 10;
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];
+            button.count = 10;
 
-        expect(button.count).equal(10);
-    });
+            expect(button.count).equal(10);
+        });
 
-    it(@"should in 'disabled' state", ^{
+        it(@"should in 'disabled' state", ^{
 
-        CKCountdownButton *button = [[CKCountdownButton alloc] init];
-        button.count = 10;
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];
+            button.count = 10;
 
-        expect(button.state).equal(UIControlStateDisabled);
+            expect(button.state).equal(UIControlStateDisabled);
+        });
+
+        it(@"should set 'Title' to 'Count'", ^{
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];
+            button.count = 10;
+
+            expect(button.titleLabel.text).equal(@"10");
+        });
+
+        it(@"should start counting down", ^{
+            
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];
+            button.count = 10;
+            
+            pending(@"");
+        });
     });
 });
 
