@@ -10,9 +10,7 @@
 
 static NSString* PLACEHOLDER = @"#";
 
-@interface CKCountdownButton() {
-
-}
+@interface CKCountdownButton()
 
 @property (strong, nonatomic) NSTimer *clockTimer;
 @property (copy, nonatomic) NSString *countingTitle;
@@ -23,24 +21,6 @@ static NSString* PLACEHOLDER = @"#";
 @end
 
 @implementation CKCountdownButton
-
-# pragma mark - Initializers
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-    }
-    return self;
-}
 
 - (void)setCount:(NSInteger)count {
     if (self.counting) {
