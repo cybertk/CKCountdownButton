@@ -15,7 +15,8 @@ static NSString* PLACEHOLDER = @"__CKCountdownButton__";
 }
 
 @property (strong, nonatomic) NSTimer *clockTimer;
-@property (strong, nonatomic) NSString *originTitle;
+@property (strong, nonatomic) NSString *countingTitle;
+@property (strong, nonatomic) NSString *normalTitle;
 @property (strong, nonatomic) NSDate *countUntil;
 
 @end
@@ -44,13 +45,16 @@ static NSString* PLACEHOLDER = @"__CKCountdownButton__";
 - (void)setCount:(NSInteger)count {
     _count = count;
 
+    // If the title For normal state is not set, iOS will use title from disabled state.
+    self.normalTitle = self.titleLabel.text;
+
     self.enabled = NO;
     self.countUntil = [NSDate dateWithTimeIntervalSinceNow:_count];
-    self.originTitle = self.titleLabel.text;
+    self.countingTitle = self.titleLabel.text;
 
     // Fallback if title is unset of does not contain PlaceholderString '%@'
-    if(!self.originTitle || [self.originTitle rangeOfString:@"%%@"].location == NSNotFound) {
-        self.originTitle = PLACEHOLDER;
+    if(!self.countingTitle || [self.countingTitle rangeOfString:@"%%@"].location == NSNotFound) {
+        self.countingTitle = PLACEHOLDER;
     }
 
     [self updateDisplay];
@@ -75,7 +79,17 @@ static NSString* PLACEHOLDER = @"__CKCountdownButton__";
     // Round up
     NSInteger currentCount = ceil([self.countUntil timeIntervalSinceDate:[NSDate date]]);
 
-    self.titleLabel.text = [self.originTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];
+    if (currentCount <= 0) {
+        self.enabled = YES;
+        [self.clockTimer invalidate];
+
+        if ([self.normalTitle length] == 0) {
+            self.titleLabel.text = @"";
+        }
+    } else {
+        NSString *title = [self.countingTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];
+        [self setTitle:title forState:UIControlStateDisabled];
+    }
 }
 
 - (void)dealloc {

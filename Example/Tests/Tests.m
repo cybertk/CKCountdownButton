@@ -53,6 +53,28 @@ describe(@"Set 'count' to a CKCountdownButton", ^{
             expect(button.titleLabel.text).after(1).to.equal(@"2");
             expect(button.titleLabel.text).after(2).to.equal(@"1");
         });
+
+        it(@"should in 'normal' state after counted down", ^{
+
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];
+            button.count = 1;
+
+            expect(button.state).after(1).to.equal(UIControlStateNormal);
+        });
+
+        it(@"should display normal 'Title' after counted down", ^{
+
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];
+            button.count = 1;
+
+            expect(button.titleLabel.text).after(2).to.equal(@"");
+
+            button = [[CKCountdownButton alloc] init];
+            [button setTitle:@"Title" forState:UIControlStateNormal];
+            button.count = 1;
+
+            expect(button.titleLabel.text).after(1).to.equal(@"Title");
+        });
     });
 });
 
