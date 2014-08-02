@@ -7,19 +7,17 @@
 
 ## Features
 
-* Button is disabled when countdown timer run
-* Button is auto enabled when countdown timer stop
+* Button is disabled when counting
+* Button is auto enabled when counted down
+* Click on button can auto start counting
+* Set customized background color while counting
 
-## Usage
+## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+Or run `pod try CKCountdownButton` for latest stable version.
 
-### Use in Storyboard
-
-- Drag a UIButton from Object Library
-- Set the class of UIBUtton to `CKCountdownButton`. 
-- Change the type of UIButton to `Custom`, or it will flash while counting down.
 
 ## Requirements
 
@@ -30,6 +28,16 @@ it, simply add the following line to your Podfile:
 
     pod "CKCountdownButton"
 
+## Usage
+
+### Use in Storyboard
+
+- Drag a UIButton from Object Library
+- Set the class of UIBUtton to `CKCountdownButton`. 
+- Change the type of UIButton to `Custom`, or it will flash while counting down.
+- Set `count` in **User Defined Runtime Attributes** window.
+- Set `startCountWhenClick` in **User Defined Runtime Attributes** window if you want start counting when user click the button
+ 
 ## Author
 
 Quanlong He, kyan.ql.he@gmail.com
