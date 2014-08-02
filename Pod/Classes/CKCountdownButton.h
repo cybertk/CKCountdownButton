@@ -26,6 +26,6 @@
 @optional
 
 // Called when timer counted down
-- (void)countedDown:(CKCountdownButton *)button;
+- (void)buttonDidCountDown:(CKCountdownButton *)button;
 
 @end
