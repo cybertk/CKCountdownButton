@@ -61,6 +61,7 @@ static NSString* PLACEHOLDER = @"#";
     self.countingTitle = self.titleLabel.text;
     self.backgroundColorForDefault = self.backgroundColor;
 
+    // Change background color
     if (self.backgroundColorForDisabledState) {
         self.backgroundColor = self.backgroundColorForDisabledState;
     }
@@ -102,6 +103,12 @@ static NSString* PLACEHOLDER = @"#";
             self.titleLabel.text = @"";
         }
 
+        // Restore background color
+        if (self.backgroundColorForDisabledState) {
+            self.backgroundColor = self.backgroundColorForDefault;
+        }
+
+        // Notify
         if (self.delegate) {
             [self.delegate countedDown:self];
         }

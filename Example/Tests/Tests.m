@@ -91,6 +91,17 @@ describe(@"Set 'count' to a CKCountdownButton", ^{
 
                 expect(button.backgroundColor).equal([UIColor redColor]);
             });
+
+            it(@"should display origin background color after counted down", ^{
+
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                UIColor *originColor = button.backgroundColor;
+
+                button.backgroundColorForDisabledState = [UIColor redColor];
+                button.count = 1;
+
+                expect(button.backgroundColor).after(1).to.equal(originColor);
+            });
         });
     });
 
@@ -135,10 +146,10 @@ describe(@"Reuse exist CKCountdownButton", ^{
 
     beforeAll(^{
         button = [[CKCountdownButton alloc] init];
+        button.count = 1;
     });
 
     it(@"cannot modify count while counting ", ^{
-        button.count = 1;
         button.count = 2;
 
         expect(button.count).equal(1);
