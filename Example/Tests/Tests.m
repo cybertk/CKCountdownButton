@@ -37,7 +37,7 @@ describe(@"Set 'count' to a CKCountdownButton", ^{
             expect(button.state).equal(UIControlStateDisabled);
         });
 
-        it(@"should set 'Title' to 'Count'", ^{
+        it(@"should display title as 'Count'", ^{
             CKCountdownButton *button = [[CKCountdownButton alloc] init];
             button.count = 10;
 
@@ -62,18 +62,46 @@ describe(@"Set 'count' to a CKCountdownButton", ^{
             expect(button.state).after(1).to.equal(UIControlStateNormal);
         });
 
-        it(@"should display normal 'Title' after counted down", ^{
+        it(@"should display 'empty' title after counted down", ^{
 
             CKCountdownButton *button = [[CKCountdownButton alloc] init];
             button.count = 1;
 
             expect(button.titleLabel.text).after(2).to.equal(@"");
+        });
+    });
 
-            button = [[CKCountdownButton alloc] init];
+    describe(@"and set 'Disabled Title'", ^{
+
+        it(@"should display normal 'Title' after counted down", ^{
+
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];
             [button setTitle:@"Title" forState:UIControlStateNormal];
             button.count = 1;
 
             expect(button.titleLabel.text).after(1).to.equal(@"Title");
+        });
+
+        describe(@"and does not contain 'Placeholder", ^{
+
+            it(@"should display count as title", ^{
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                [button setTitle:@"Title" forState:UIControlStateDisabled];
+                button.count = 1;
+
+                expect(button.titleLabel.text).to.equal(@"1");
+            });
+        });
+
+        describe(@"and contains 'Placeholder", ^{
+
+            it(@"should display count embedded in title", ^{
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                [button setTitle:@"Title (#)" forState:UIControlStateDisabled];
+                button.count = 1;
+
+                expect(button.titleLabel.text).to.equal(@"Title (1)");
+            });
         });
     });
 });

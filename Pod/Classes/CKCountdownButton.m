@@ -8,7 +8,7 @@
 
 #import "CKCountdownButton.h"
 
-static NSString* PLACEHOLDER = @"__CKCountdownButton__";
+static NSString* PLACEHOLDER = @"#";
 
 @interface CKCountdownButton() {
 
@@ -52,8 +52,8 @@ static NSString* PLACEHOLDER = @"__CKCountdownButton__";
     self.countUntil = [NSDate dateWithTimeIntervalSinceNow:_count];
     self.countingTitle = self.titleLabel.text;
 
-    // Fallback if title is unset of does not contain PlaceholderString '%@'
-    if(!self.countingTitle || [self.countingTitle rangeOfString:@"%%@"].location == NSNotFound) {
+    // Fallback if title is unset of does not contain PLACEHOLDER
+    if(!self.countingTitle || [self.countingTitle rangeOfString:PLACEHOLDER].location == NSNotFound) {
         self.countingTitle = PLACEHOLDER;
     }
 
