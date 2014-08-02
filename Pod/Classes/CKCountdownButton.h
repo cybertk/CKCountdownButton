@@ -18,6 +18,9 @@
 // defaults to nil
 @property(nonatomic,assign) id<CKCountdownButtonDelegate> delegate;
 
+// defautls to nil, the background color used while counting
+@property (strong, nonatomic) UIColor *backgroundColorForDisabledState;
+
 @end
 
 

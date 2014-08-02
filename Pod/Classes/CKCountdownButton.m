@@ -18,6 +18,7 @@ static NSString* PLACEHOLDER = @"#";
 @property (strong, nonatomic) NSString *countingTitle;
 @property (strong, nonatomic) NSString *normalTitle;
 @property (strong, nonatomic) NSDate *countUntil;
+@property (strong, nonatomic) UIColor *backgroundColorForDefault;
 @property (nonatomic) BOOL counting;
 
 @end
@@ -58,6 +59,11 @@ static NSString* PLACEHOLDER = @"#";
     self.enabled = NO;
     self.countUntil = [NSDate dateWithTimeIntervalSinceNow:_count];
     self.countingTitle = self.titleLabel.text;
+    self.backgroundColorForDefault = self.backgroundColor;
+
+    if (self.backgroundColorForDisabledState) {
+        self.backgroundColor = self.backgroundColorForDisabledState;
+    }
 
     // Fallback if title is unset of does not contain PLACEHOLDER
     if(!self.countingTitle || [self.countingTitle rangeOfString:PLACEHOLDER].location == NSNotFound) {

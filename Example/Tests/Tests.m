@@ -20,53 +20,77 @@ describe(@"Create a new CKCountdownButton", ^{
 describe(@"Set 'count' to a CKCountdownButton", ^{
 
     describe(@"and does not set 'Title'", ^{
-        it(@"should have 'count' set", ^{
 
-            CKCountdownButton *button = [[CKCountdownButton alloc] init];
-            button.count = 10;
+        describe(@"and does not set 'backgroundColorForDisableState'", ^{
 
-            expect(button.count).equal(10);
+            it(@"should have 'count' set", ^{
+
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.count = 10;
+
+                expect(button.count).equal(10);
+            });
+
+            it(@"should in 'disabled' state", ^{
+
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.count = 10;
+
+                expect(button.state).equal(UIControlStateDisabled);
+            });
+
+            it(@"should not change background color", ^{
+
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                UIColor *expectedColor = button.backgroundColor;
+                button.count = 10;
+
+                expect(button.backgroundColor).equal(expectedColor);
+            });
+
+            it(@"should display title as 'Count'", ^{
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.count = 10;
+
+                expect(button.titleLabel.text).equal(@"10");
+            });
+
+            it(@"should start counting down", ^{
+
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.count = 3;
+
+                expect(button.titleLabel.text).to.equal(@"3");
+                expect(button.titleLabel.text).after(1).to.equal(@"2");
+                expect(button.titleLabel.text).after(2).to.equal(@"1");
+            });
+
+            it(@"should in 'normal' state after counted down", ^{
+
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.count = 1;
+                
+                expect(button.state).after(1).to.equal(UIControlStateNormal);
+            });
+            
+            it(@"should display 'empty' title after counted down", ^{
+                
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.count = 1;
+                
+                expect(button.titleLabel.text).after(2).to.equal(@"");
+            });
         });
 
-        it(@"should in 'disabled' state", ^{
+        describe(@"and set 'backgroundColorForDisableState'", ^{
+            it(@"should display background color set", ^{
 
-            CKCountdownButton *button = [[CKCountdownButton alloc] init];
-            button.count = 10;
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.backgroundColorForDisabledState = [UIColor redColor];
+                button.count = 10;
 
-            expect(button.state).equal(UIControlStateDisabled);
-        });
-
-        it(@"should display title as 'Count'", ^{
-            CKCountdownButton *button = [[CKCountdownButton alloc] init];
-            button.count = 10;
-
-            expect(button.titleLabel.text).equal(@"10");
-        });
-
-        it(@"should start counting down", ^{
-
-            CKCountdownButton *button = [[CKCountdownButton alloc] init];
-            button.count = 3;
-
-            expect(button.titleLabel.text).to.equal(@"3");
-            expect(button.titleLabel.text).after(1).to.equal(@"2");
-            expect(button.titleLabel.text).after(2).to.equal(@"1");
-        });
-
-        it(@"should in 'normal' state after counted down", ^{
-
-            CKCountdownButton *button = [[CKCountdownButton alloc] init];
-            button.count = 1;
-
-            expect(button.state).after(1).to.equal(UIControlStateNormal);
-        });
-
-        it(@"should display 'empty' title after counted down", ^{
-
-            CKCountdownButton *button = [[CKCountdownButton alloc] init];
-            button.count = 1;
-
-            expect(button.titleLabel.text).after(2).to.equal(@"");
+                expect(button.backgroundColor).equal([UIColor redColor]);
+            });
         });
     });
 
