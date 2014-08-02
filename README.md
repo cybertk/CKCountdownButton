@@ -14,6 +14,13 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+
+### Use in Storyboard
+
+- Drag a UIButton from Object Library
+- Set the class of UIBUtton to `CKCountdownButton`. 
+- Change the type of UIButton to `Custom`, or it will flash while counting down.
+
 ## Requirements
 
 ## Installation
