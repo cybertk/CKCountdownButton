@@ -18,6 +18,7 @@ static NSString* PLACEHOLDER = @"#";
 @property (strong, nonatomic) NSString *countingTitle;
 @property (strong, nonatomic) NSString *normalTitle;
 @property (strong, nonatomic) NSDate *countUntil;
+@property (nonatomic) BOOL counting;
 
 @end
 
@@ -37,13 +38,19 @@ static NSString* PLACEHOLDER = @"#";
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
     }
     return self;
 }
 
 - (void)setCount:(NSInteger)count {
+    if (self.counting) {
+        NSLog(@"Warning: Cannot modify count while counting");
+        return;
+    }
+
     _count = count;
+
+    self.counting = YES;
 
     // If the title For normal state is not set, iOS will use title from disabled state.
     self.normalTitle = self.titleLabel.text;
@@ -80,6 +87,8 @@ static NSString* PLACEHOLDER = @"#";
     NSInteger currentCount = ceil([self.countUntil timeIntervalSinceDate:[NSDate date]]);
 
     if (currentCount <= 0) {
+        self.counting = NO;
+
         self.enabled = YES;
         [self.clockTimer invalidate];
 

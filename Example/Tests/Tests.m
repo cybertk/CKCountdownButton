@@ -106,20 +106,33 @@ describe(@"Set 'count' to a CKCountdownButton", ^{
     });
 });
 
-describe(@"these will pass", ^{
-    
-    it(@"can do maths", ^{
-        expect(1).beLessThan(23);
+describe(@"Reuse exist CKCountdownButton", ^{
+
+    __block CKCountdownButton *button;
+
+    beforeAll(^{
+        button = [[CKCountdownButton alloc] init];
     });
-    
-    it(@"can read", ^{
-        expect(@"team").toNot.contain(@"I");
+
+    it(@"cannot modify count while counting ", ^{
+        button.count = 1;
+        button.count = 2;
+
+        expect(button.count).equal(1);
+        expect(button.count).after(2).to.equal(1);
     });
-    
-    it(@"will wait and succeed", ^AsyncBlock {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+
+    it(@"can modify count after counted down ", ^AsyncBlock {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            button.count = 3;
             done();
         });
+
+        expect(button.count).after(2).to.equal(3);
+        expect(button.titleLabel.text).after(3).to.equal(@"2");
+        expect(button.titleLabel.text).after(4).to.equal(@"1");
+
+        expect(button.titleLabel.text).after(5).to.equal(@"");
     });
 });
 
