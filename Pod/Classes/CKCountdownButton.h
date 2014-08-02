@@ -21,6 +21,9 @@
 // defautls to nil, the background color used while counting
 @property (strong, nonatomic) UIColor *backgroundColorForDisabledState;
 
+// defaults to YES, start counting when click the button
+@property(nonatomic) BOOL startCountWhenClick;
+
 @end
 
 

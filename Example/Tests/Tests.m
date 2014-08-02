@@ -140,6 +140,44 @@ describe(@"Set 'count' to a CKCountdownButton", ^{
     });
 });
 
+describe(@"Click CKCountdownButton", ^{
+
+    describe(@"when button is not counting", ^ {
+
+        describe(@"when startCountWhenClick is YES", ^ {
+
+            it(@"should start count", ^{
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.count = 1;
+
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    [button sendActionsForControlEvents:UIControlEventTouchUpInside];
+                });
+
+                expect(button.state).after(2).to.equal(UIControlStateDisabled);
+            });
+        });
+
+        describe(@"when startCountWhenClick is NO", ^ {
+
+            it(@"should do start count", ^{
+
+                CKCountdownButton *button = [[CKCountdownButton alloc] init];
+                button.startCountWhenClick = NO;
+                button.count = 1;
+
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    [button sendActionsForControlEvents:UIControlEventTouchUpInside];
+                });
+
+                expect(button.state).after(2).to.equal(UIControlStateNormal);
+            });
+        });
+
+
+    });
+});
+
 describe(@"Reuse exist CKCountdownButton", ^{
 
     __block CKCountdownButton *button;

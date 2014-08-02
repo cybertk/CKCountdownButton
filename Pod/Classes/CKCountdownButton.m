@@ -31,6 +31,7 @@ static NSString* PLACEHOLDER = @"#";
 {
     self = [super init];
     if (self) {
+        [self initialize];
     }
     return self;
 }
@@ -39,8 +40,23 @@ static NSString* PLACEHOLDER = @"#";
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self initialize];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    [self addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
+    self.startCountWhenClick = YES;
 }
 
 - (void)setCount:(NSInteger)count {
@@ -115,6 +131,13 @@ static NSString* PLACEHOLDER = @"#";
     } else {
         NSString *title = [self.countingTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];
         [self setTitle:title forState:UIControlStateDisabled];
+    }
+}
+
+- (void)onClick {
+
+    if (!self.counting && self.startCountWhenClick) {
+        self.count = self.count;
     }
 }
 
