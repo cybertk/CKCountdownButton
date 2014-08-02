@@ -95,6 +95,10 @@ static NSString* PLACEHOLDER = @"#";
         if ([self.normalTitle length] == 0) {
             self.titleLabel.text = @"";
         }
+
+        if (self.delegate) {
+            [self.delegate countedDown:self];
+        }
     } else {
         NSString *title = [self.countingTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];
         [self setTitle:title forState:UIControlStateDisabled];
