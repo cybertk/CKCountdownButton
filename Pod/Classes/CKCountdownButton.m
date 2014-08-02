@@ -15,8 +15,8 @@ static NSString* PLACEHOLDER = @"#";
 }
 
 @property (strong, nonatomic) NSTimer *clockTimer;
-@property (strong, nonatomic) NSString *countingTitle;
-@property (strong, nonatomic) NSString *normalTitle;
+@property (copy, nonatomic) NSString *countingTitle;
+@property (copy, nonatomic) NSString *normalTitle;
 @property (strong, nonatomic) NSDate *countUntil;
 @property (nonatomic) BOOL counting;
 
