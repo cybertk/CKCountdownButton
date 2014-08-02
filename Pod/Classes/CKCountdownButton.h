@@ -16,7 +16,7 @@
 @property(nonatomic) NSInteger count;
 
 // defaults to nil
-@property(nonatomic,assign) id<CKCountdownButtonDelegate> delegate;
+@property(nonatomic, weak) id<CKCountdownButtonDelegate> delegate;
 
 // defautls to nil, the background color used while counting
 @property (strong, nonatomic) UIColor *backgroundColorForDisabledState;
@@ -32,6 +32,6 @@
 @optional
 
 // Called when timer counted down
-- (void)countedDown:(CKCountdownButton *)button;
+- (void)buttonDidCountDown:(CKCountdownButton *)button;
 
 @end

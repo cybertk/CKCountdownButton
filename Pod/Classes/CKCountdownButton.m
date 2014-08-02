@@ -10,13 +10,11 @@
 
 static NSString* PLACEHOLDER = @"#";
 
-@interface CKCountdownButton() {
-
-}
+@interface CKCountdownButton()
 
 @property (strong, nonatomic) NSTimer *clockTimer;
-@property (strong, nonatomic) NSString *countingTitle;
-@property (strong, nonatomic) NSString *normalTitle;
+@property (copy, nonatomic) NSString *countingTitle;
+@property (copy, nonatomic) NSString *normalTitle;
 @property (strong, nonatomic) NSDate *countUntil;
 @property (strong, nonatomic) UIColor *backgroundColorForDefault;
 @property (nonatomic) BOOL counting;
@@ -125,8 +123,8 @@ static NSString* PLACEHOLDER = @"#";
         }
 
         // Notify
-        if (self.delegate) {
-            [self.delegate countedDown:self];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(buttonDidCountDown:)]) {
+            [self.delegate buttonDidCountDown:self];
         }
     } else {
         NSString *title = [self.countingTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];

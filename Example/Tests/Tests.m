@@ -217,7 +217,7 @@ describe(@"Delegation", ^{
             // In a test
             id mock = [OCMockObject mockForProtocol:@protocol(CKCountdownButtonDelegate)];
 
-            [[mock expect] countedDown:button];
+            [[mock expect] buttonDidCountDown:button];
 
             button.count = 1;
             button.delegate = mock;
