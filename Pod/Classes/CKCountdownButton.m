@@ -16,11 +16,46 @@ static NSString* PLACEHOLDER = @"#";
 @property (copy, nonatomic) NSString *countingTitle;
 @property (copy, nonatomic) NSString *normalTitle;
 @property (strong, nonatomic) NSDate *countUntil;
+@property (strong, nonatomic) UIColor *backgroundColorForDefault;
 @property (nonatomic) BOOL counting;
 
 @end
 
 @implementation CKCountdownButton
+
+# pragma mark - Initializers
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    [self addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
+    self.startCountWhenClick = YES;
+}
 
 - (void)setCount:(NSInteger)count {
     if (self.counting) {
@@ -38,6 +73,12 @@ static NSString* PLACEHOLDER = @"#";
     self.enabled = NO;
     self.countUntil = [NSDate dateWithTimeIntervalSinceNow:_count];
     self.countingTitle = self.titleLabel.text;
+    self.backgroundColorForDefault = self.backgroundColor;
+
+    // Change background color
+    if (self.backgroundColorForDisabledState) {
+        self.backgroundColor = self.backgroundColorForDisabledState;
+    }
 
     // Fallback if title is unset of does not contain PLACEHOLDER
     if(!self.countingTitle || [self.countingTitle rangeOfString:PLACEHOLDER].location == NSNotFound) {
@@ -76,12 +117,25 @@ static NSString* PLACEHOLDER = @"#";
             self.titleLabel.text = @"";
         }
 
+        // Restore background color
+        if (self.backgroundColorForDisabledState) {
+            self.backgroundColor = self.backgroundColorForDefault;
+        }
+
+        // Notify
         if (self.delegate && [self.delegate respondsToSelector:@selector(buttonDidCountDown:)]) {
             [self.delegate buttonDidCountDown:self];
         }
     } else {
         NSString *title = [self.countingTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];
         [self setTitle:title forState:UIControlStateDisabled];
+    }
+}
+
+- (void)onClick {
+
+    if (!self.counting && self.startCountWhenClick) {
+        self.count = self.count;
     }
 }
 
