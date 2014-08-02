@@ -96,8 +96,8 @@ static NSString* PLACEHOLDER = @"#";
             self.titleLabel.text = @"";
         }
 
-        if (self.delegate) {
-            [self.delegate countedDown:self];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(buttonDidCountDown:)]) {
+            [self.delegate buttonDidCountDown:self];
         }
     } else {
         NSString *title = [self.countingTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];
