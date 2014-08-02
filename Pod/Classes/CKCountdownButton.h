@@ -16,7 +16,7 @@
 @property(nonatomic) NSInteger count;
 
 // defaults to nil
-@property(nonatomic,assign) id<CKCountdownButtonDelegate> delegate;
+@property(nonatomic, weak) id<CKCountdownButtonDelegate> delegate;
 
 @end
 
