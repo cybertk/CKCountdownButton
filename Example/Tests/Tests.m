@@ -45,11 +45,13 @@ describe(@"Set 'count' to a CKCountdownButton", ^{
         });
 
         it(@"should start counting down", ^{
-            
+
             CKCountdownButton *button = [[CKCountdownButton alloc] init];
-            button.count = 10;
-            
-            pending(@"");
+            button.count = 3;
+
+            expect(button.titleLabel.text).to.equal(@"3");
+            expect(button.titleLabel.text).after(1).to.equal(@"2");
+            expect(button.titleLabel.text).after(2).to.equal(@"1");
         });
     });
 });
