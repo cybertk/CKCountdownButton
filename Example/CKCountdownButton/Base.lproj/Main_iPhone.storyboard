@@ -29,19 +29,23 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rkn-Ou-e34" customClass="CKCountdownButton">
-                                <rect key="frame" x="129" y="207" width="63" height="32"/>
+                                <rect key="frame" x="0.0" y="207" width="320" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.050746307400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForDisabledState">
+                                        <color key="value" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="Count">
-                                        <integer key="value" value="60"/>
+                                        <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -63,6 +67,8 @@
                             <constraint firstAttribute="centerX" secondItem="Rkn-Ou-e34" secondAttribute="centerX" id="7hm-QC-9H5"/>
                             <constraint firstItem="Rkn-Ou-e34" firstAttribute="top" secondItem="Ydg-ja-URZ" secondAttribute="bottom" constant="30" id="B0x-Aq-Q0d"/>
                             <constraint firstAttribute="centerX" secondItem="6lA-uT-C4G" secondAttribute="centerX" id="E0D-v0-ywM"/>
+                            <constraint firstAttribute="trailing" secondItem="Rkn-Ou-e34" secondAttribute="trailing" id="KL6-nC-cuz"/>
+                            <constraint firstItem="Rkn-Ou-e34" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="cbn-kR-bnh"/>
                             <constraint firstAttribute="centerY" secondItem="6lA-uT-C4G" secondAttribute="centerY" id="fRL-fB-EFF"/>
                             <constraint firstAttribute="centerX" secondItem="Ydg-ja-URZ" secondAttribute="centerX" id="gJs-Jl-rWO"/>
                             <constraint firstItem="6lA-uT-C4G" firstAttribute="top" secondItem="Rkn-Ou-e34" secondAttribute="bottom" constant="30" id="iTI-BY-HAd"/>
