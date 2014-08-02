@@ -41,6 +41,7 @@ it, simply add the following line to your Podfile:
 ## Author
 
 Quanlong He, kyan.ql.he@gmail.com
+[Tomasz Szulc](https://github.com/tomkowz)
 
 ## License
 
