@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Quanlong He. All rights reserved.
 //
 
-
 SpecBegin(InitialSpecs)
 
 describe(@"Create a new CKCountdownButton", ^{
@@ -133,6 +132,25 @@ describe(@"Reuse exist CKCountdownButton", ^{
         expect(button.titleLabel.text).after(4).to.equal(@"1");
 
         expect(button.titleLabel.text).after(5).to.equal(@"");
+    });
+});
+
+describe(@"Delegation", ^{
+    describe(@"when counted down", ^{
+
+        it(@"should invoke delegation", ^{
+            CKCountdownButton *button = [[CKCountdownButton alloc] init];;
+
+            // In a test
+            id mock = [OCMockObject mockForProtocol:@protocol(CKCountdownButtonDelegate)];
+
+            [[mock expect] countedDown:button];
+
+            button.count = 1;
+            button.delegate = mock;
+
+            [mock verifyWithDelay:1.0];
+        });
     });
 });
 
