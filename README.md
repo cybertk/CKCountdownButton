@@ -11,6 +11,7 @@
 * Button is auto enabled when counted down
 * Click on button can auto start counting
 * Set customized background color while counting
+* Support customized title while counting
 
 ## Example
 
@@ -37,6 +38,7 @@ it, simply add the following line to your Podfile:
 - Change the type of UIButton to `Custom`, or it will flash while counting down.
 - Set `count` in **User Defined Runtime Attributes** window.
 - Set `startCountWhenClick` in **User Defined Runtime Attributes** window if you want start counting when user click the button
+- Set **Title** for **Disabled State**, we use `#` as a placeholder, which will be replaced to acture count number while counting 
  
 ## Author
 
