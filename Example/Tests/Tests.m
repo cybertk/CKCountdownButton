@@ -208,6 +208,26 @@ describe(@"Reuse exist CKCountdownButton", ^{
     });
 });
 
+describe(@"Reuse exist CKCountdownButton with title", ^{
+
+
+    it(@"can display customized title when re-counting ", ^{
+        CKCountdownButton *button = [[CKCountdownButton alloc] init];
+        [button setTitle:@"Title (#)" forState:UIControlStateDisabled];
+        button.count = 1;
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            button.count = 3;
+        });
+
+        expect(button.count).after(2).to.equal(3);
+        expect(button.titleLabel.text).after(3).to.equal(@"Title (2)");
+        expect(button.titleLabel.text).after(4).to.equal(@"Title (1)");
+
+        expect(button.titleLabel.text).after(5).to.equal(@"");
+    });
+});
+
 describe(@"Delegation", ^{
     describe(@"when counted down", ^{
 

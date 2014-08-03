@@ -14,7 +14,8 @@ static NSString* PLACEHOLDER = @"#";
 
 @property (strong, nonatomic) NSTimer *clockTimer;
 @property (copy, nonatomic) NSString *countingTitle;
-@property (copy, nonatomic) NSString *normalTitle;
+@property (copy, nonatomic) NSString *titleForNormal;
+@property (copy, nonatomic) NSString *titleForDisabled;
 @property (strong, nonatomic) NSDate *countUntil;
 @property (strong, nonatomic) UIColor *backgroundColorForDefault;
 @property (nonatomic) BOOL counting;
@@ -65,14 +66,14 @@ static NSString* PLACEHOLDER = @"#";
 
     _count = count;
 
+    self.enabled = NO;
     self.counting = YES;
 
-    // If the title For normal state is not set, iOS will use title from disabled state.
-    self.normalTitle = self.titleLabel.text;
+    self.titleForNormal = [self titleForState:UIControlStateNormal];
+    self.titleForDisabled = [self titleForState:UIControlStateDisabled];
 
-    self.enabled = NO;
     self.countUntil = [NSDate dateWithTimeIntervalSinceNow:_count];
-    self.countingTitle = self.titleLabel.text;
+    self.countingTitle = self.titleForDisabled;
     self.backgroundColorForDefault = self.backgroundColor;
 
     // Change background color
@@ -113,7 +114,12 @@ static NSString* PLACEHOLDER = @"#";
         self.enabled = YES;
         [self.clockTimer invalidate];
 
-        if ([self.normalTitle length] == 0) {
+        // Restore title disabled and normal state
+        [self setTitle:self.titleForNormal forState:UIControlStateNormal];
+        [self setTitle:self.titleForDisabled forState:UIControlStateDisabled];
+
+        // [self setTitle:nil forState:UIControlStateNormal] can not clear title
+        if ([self.titleForNormal length] == 0) {
             self.titleLabel.text = @"";
         }
 
