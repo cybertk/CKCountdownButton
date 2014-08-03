@@ -1,5 +1,5 @@
 PODS:
-  - CKCountdownButton (0.2.0)
+  - CKCountdownButton (0.3.0)
   - Expecta (0.3.1)
   - OCMock (3.0.2)
   - Specta (0.2.1)
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CKCountdownButton: b412d11ed8bde5203789a0c7d5c9c5f69d1e199c
+  CKCountdownButton: 0cc7f6f4c2ca6f3144ccd60a4ac7d65c46e8c833
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   OCMock: b9836ab89d8d5e66cbe6333f93857037c310ee62
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
