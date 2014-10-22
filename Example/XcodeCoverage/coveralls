@@ -1,0 +1,16 @@
+#!/bin/sh
+./XcodeCoverage/cleancov
+xctool test -workspace CKCountdownButton.xcworkspace -scheme CKCountdownButton -sdk iphonesimulator -arch i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${DIR}/envcov.sh
+
+DIR_NAME=`dirname ${DIR}`
+ROOT_NAME=`dirname ${DIR_NAME}`
+mkdir ${DIR_NAME}/gcov
+cp -r ${OBJ_DIR}/* ${DIR_NAME}/gcov/
+cd  ${ROOT_NAME}
+coveralls -e Pods/ -e Pod/Classes/  -e Example/Pods/ -e Example/XcodeCoverage/
+cd ${DIR_NAME}
+
+rm -rf ${DIR_NAME}/gcov
