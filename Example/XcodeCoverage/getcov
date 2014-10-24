@@ -40,7 +40,7 @@ generate_report()
 {
     "${LCOV_PATH}/genhtml" --output-directory . ${LCOV_INFO}
     DIR_NAME=`dirname ${DIR}`
-    cp index.html ${DIR_NAME}
+    cp -r ${BUILT_PRODUCTS_DIR}/lcov ${DIR_NAME}/
     #open index.html
 }
 
