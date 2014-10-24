@@ -39,7 +39,9 @@ exclude_data()
 generate_report()
 {
     "${LCOV_PATH}/genhtml" --output-directory . ${LCOV_INFO}
-    open index.html
+    DIR_NAME=`dirname ${DIR}`
+    cp index.html ${DIR_NAME}
+    #open index.html
 }
 
 remove_old_report
