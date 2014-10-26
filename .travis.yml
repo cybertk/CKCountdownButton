@@ -1,5 +1,6 @@
 # reference: http://www.objc.io/issue-6/travis-ci.html
-
+before_install:
+- gem install cocoapods
 language: objective-c
 script:
 - xctool test -workspace Example/CKCountdownButton.xcworkspace -scheme CKCountdownButton -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
