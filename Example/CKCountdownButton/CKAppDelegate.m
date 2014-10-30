@@ -7,12 +7,17 @@
 //
 
 #import "CKAppDelegate.h"
+#include <stdio.h>
 
+extern void __gcov_flush();
 @implementation CKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    setenv("GCOV_PREFIX", [documentsDirectory cStringUsingEncoding:NSUTF8StringEncoding], 1);
     return YES;
 }
 							
@@ -26,6 +31,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    __gcov_flush();
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
