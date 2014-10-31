@@ -1363,6 +1363,7 @@ fi
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		F35165851A035F8700373AF2 /* CKSecondTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35165841A035F8700373AF2 /* CKSecondTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1405,6 +1406,8 @@ fi
 		B023550FD8AC024439BD484C /* Pods-CKCountdownButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CKCountdownButton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CKCountdownButton/Pods-CKCountdownButton.debug.xcconfig"; sourceTree = "<group>"; };
 		CDE853EE4C2943B19D107344 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70E97797F9B4D6A9A06AC79 /* libPods-CKCountdownButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CKCountdownButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F35165831A035F8700373AF2 /* CKSecondTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSecondTableViewController.h; sourceTree = "<group>"; };
+		F35165841A035F8700373AF2 /* CKSecondTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSecondTableViewController.m; sourceTree = "<group>"; };
 		F48BD8172A514CA7F62AEA79 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1477,6 +1480,8 @@ fi
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
 				6003F5A5195388D20070C39A /* CKViewController.h */,
 				6003F5A6195388D20070C39A /* CKViewController.m */,
+				F35165831A035F8700373AF2 /* CKSecondTableViewController.h */,
+				F35165841A035F8700373AF2 /* CKSecondTableViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -1715,6 +1720,7 @@ fi
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CKAppDelegate.m in Sources */,
+				F35165851A035F8700373AF2 /* CKSecondTableViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* CKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -1794,6 +1800,8 @@ fi
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1833,6 +1841,8 @@ fi
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1868,7 +1878,7 @@ fi
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CKCountdownButton/CKCountdownButton-Prefix.pch";
 				INFOPLIST_FILE = "CKCountdownButton/CKCountdownButton-Info.plist";

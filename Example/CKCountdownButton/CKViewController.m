@@ -10,6 +10,7 @@
 
 @interface CKViewController ()
 
+@property (nonatomic, strong) IBOutlet UIButton *secondButton;
 @end
 
 @implementation CKViewController
@@ -18,6 +19,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self.secondButton addTarget:self
+                          action:@selector(gotoSecondView:)
+                forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)dealloc {
+    NSLog(@"Dealloc for CKVC.");
+}
+
+- (IBAction)gotoSecondView:(id)sender {
+    [self performSegueWithIdentifier:@"GotoSecond" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
