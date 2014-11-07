@@ -84,6 +84,12 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THp-4U-vex">
+                                <rect key="frame" x="83" y="403" width="152" height="30"/>
+                                <state key="normal" title="Jump to Third View">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -99,7 +105,9 @@
                     <navigationItem key="navigationItem" id="kfn-4v-Zik"/>
                     <connections>
                         <outlet property="secondButton" destination="B10-In-Byq" id="Wcc-Wy-8DK"/>
+                        <outlet property="thirdButton" destination="THp-4U-vex" id="KMo-hU-VKs"/>
                         <segue destination="Ag1-0o-jVp" kind="push" identifier="GotoSecond" id="Zda-zX-Pi8"/>
+                        <segue destination="ZuQ-Or-3PB" kind="push" identifier="GotoThird" id="neT-9o-fbq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -161,9 +169,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coN-Ue-oUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="27"/>
+            <point key="canvasLocation" x="1257" y="-777"/>
         </scene>
-        <!--Second Table View Controller-->
+        <!--Second-->
         <scene sceneID="PXU-ny-ldt">
             <objects>
                 <tableViewController id="Ag1-0o-jVp" customClass="CKSecondTableViewController" sceneMemberID="viewController">
@@ -201,11 +209,56 @@
                             <outlet property="delegate" destination="Ag1-0o-jVp" id="uV5-iS-eTX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rMB-G6-mBm"/>
+                    <navigationItem key="navigationItem" title="Second" id="rMB-G6-mBm"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIX-nY-GCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="985"/>
+            <point key="canvasLocation" x="1257" y="65"/>
+        </scene>
+        <!--Third-->
+        <scene sceneID="qCI-em-B3a">
+            <objects>
+                <tableViewController id="ZuQ-Or-3PB" customClass="CKThirdTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="PEu-hn-xwh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="01D-ld-PaF">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gFq-Lz-tYW">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFq-Lz-tYW" id="jP5-bT-mBi">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qju-LM-PiL">
+                                                    <rect key="frame" x="0.0" y="7" width="320" height="30"/>
+                                                    <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Back">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="back:" destination="ZuQ-Or-3PB" eventType="touchUpInside" id="NVN-wk-6Dl"/>
+                                                        <action selector="back:" destination="Ag1-0o-jVp" eventType="touchUpInside" id="rtX-7E-zTY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ZuQ-Or-3PB" id="lVd-y0-YCM"/>
+                            <outlet property="delegate" destination="ZuQ-Or-3PB" id="6li-B9-sIv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Third" id="gro-RY-Otd"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="US2-Mi-6M4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="985"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

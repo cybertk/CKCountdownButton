@@ -24,6 +24,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		F3C2FC791A0C715F00E6C8C9 /* CKSecondTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C2FC781A0C715F00E6C8C9 /* CKSecondTableViewController.m */; };
+		F3C2FC7C1A0C71B900E6C8C9 /* CKThirdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C2FC7B1A0C71B900E6C8C9 /* CKThirdTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,10 @@
 		D70E97797F9B4D6A9A06AC79 /* libPods-CKCountdownButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CKCountdownButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9EC9B273117B50D7878660F /* Pods-CKCountdownButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CKCountdownButton.release.xcconfig"; path = "Pods/Target Support Files/Pods-CKCountdownButton/Pods-CKCountdownButton.release.xcconfig"; sourceTree = "<group>"; };
 		EC2FEEB79F09635EB9DBF5D8 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F3C2FC771A0C715F00E6C8C9 /* CKSecondTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSecondTableViewController.h; sourceTree = "<group>"; };
+		F3C2FC781A0C715F00E6C8C9 /* CKSecondTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSecondTableViewController.m; sourceTree = "<group>"; };
+		F3C2FC7A1A0C71B900E6C8C9 /* CKThirdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKThirdTableViewController.h; sourceTree = "<group>"; };
+		F3C2FC7B1A0C71B900E6C8C9 /* CKThirdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKThirdTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,10 @@
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
 				6003F5A5195388D20070C39A /* CKViewController.h */,
 				6003F5A6195388D20070C39A /* CKViewController.m */,
+				F3C2FC771A0C715F00E6C8C9 /* CKSecondTableViewController.h */,
+				F3C2FC781A0C715F00E6C8C9 /* CKSecondTableViewController.m */,
+				F3C2FC7A1A0C71B900E6C8C9 /* CKThirdTableViewController.h */,
+				F3C2FC7B1A0C71B900E6C8C9 /* CKThirdTableViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -376,8 +386,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CKAppDelegate.m in Sources */,
+				F3C2FC791A0C715F00E6C8C9 /* CKSecondTableViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* CKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				F3C2FC7C1A0C71B900E6C8C9 /* CKThirdTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
