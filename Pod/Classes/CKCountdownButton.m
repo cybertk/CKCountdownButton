@@ -158,4 +158,20 @@ static NSString* PLACEHOLDER = @"#";
     [self.clockTimer invalidate];
 }
 
+
+/**
+ *  添加终止计时器时钟的方法
+ */
+- (void)stopClockTimer
+{
+    if ([self.clockTimer isValid])
+    {
+        [self.clockTimer invalidate];
+        self.counting = NO;
+        NSString *title = @"";
+        self.titleLabel.text = title;
+        [self setTitle:title forState:UIControlStateDisabled];
+        [self setEnabled:YES];
+    }
+}
 @end
