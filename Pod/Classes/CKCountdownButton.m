@@ -115,6 +115,14 @@ static NSString* PLACEHOLDER = @"#";
         [self.clockTimer invalidate];
 
         // Restore title disabled and normal state
+        if (self.state == UIControlStateNormal)
+        {
+            self.titleLabel.text = self.titleForNormal;
+        }
+        else if(self.state == UIControlStateDisabled)
+        {
+            self.titleLabel.text = self.titleForDisabled;
+        }
         [self setTitle:self.titleForNormal forState:UIControlStateNormal];
         [self setTitle:self.titleForDisabled forState:UIControlStateDisabled];
 
@@ -134,6 +142,7 @@ static NSString* PLACEHOLDER = @"#";
         }
     } else {
         NSString *title = [self.countingTitle stringByReplacingOccurrencesOfString:PLACEHOLDER withString:[@(currentCount) stringValue]];
+        self.titleLabel.text = title;
         [self setTitle:title forState:UIControlStateDisabled];
     }
 }
