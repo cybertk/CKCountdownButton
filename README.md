@@ -1,6 +1,6 @@
 # CKCountdownButton
 
-[![CI Status](http://img.shields.io/travis/cybertk/CKCountdownButton.svg?style=flat)](https://travis-ci.org/cybertk/CKCountdownButton)
+[![CI Status](http://img.shields.io/travis/cybertk/CKCountdownButton/master.svg?style=flat)](https://travis-ci.org/cybertk/CKCountdownButton)
 [![Version](https://img.shields.io/cocoapods/v/CKCountdownButton.svg?style=flat)](http://cocoadocs.org/docsets/CKCountdownButton)
 [![License](https://img.shields.io/cocoapods/l/CKCountdownButton.svg?style=flat)](http://cocoadocs.org/docsets/CKCountdownButton)
 [![Platform](https://img.shields.io/cocoapods/p/CKCountdownButton.svg?style=flat)](http://cocoadocs.org/docsets/CKCountdownButton)
