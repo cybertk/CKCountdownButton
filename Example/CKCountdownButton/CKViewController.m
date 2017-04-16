@@ -10,6 +10,8 @@
 
 @interface CKViewController ()
 
+@property (nonatomic, strong) IBOutlet UIButton *secondButton;
+@property (nonatomic, strong) IBOutlet UIButton *thirdButton;
 @end
 
 @implementation CKViewController
@@ -18,6 +20,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self.secondButton addTarget:self
+                          action:@selector(gotoSecondView:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [self.thirdButton addTarget:self
+                          action:@selector(gotoThirdView:)
+                forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)dealloc {
+    NSLog(@"Dealloc for CKVC.");
+}
+
+- (IBAction)gotoSecondView:(id)sender {
+    [self performSegueWithIdentifier:@"GotoSecond" sender:self];
+}
+
+- (IBAction)gotoThirdView:(id)sender {
+    [self performSegueWithIdentifier:@"GotoThird" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
